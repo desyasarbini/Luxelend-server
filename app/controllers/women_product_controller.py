@@ -55,3 +55,24 @@ def create_women_product():
                 "size": women_new_product.size
             }
         )
+
+def get_women_product():
+    response_data = dict()
+    session = Session()
+    session.begin()
+
+    try:
+        women_product_query = session.query(Women)
+
+        if request.args.get('query') != None:
+            search_women_product_query = request.args.get('query')
+            women_product_query = women_product_query.filter(Women.category.like(f"%{search_women_product_query}%"))
+
+        women_products = women_product_query.all()
+        response_data['women_products'] = [women.serialize(full=False) for women in women_products]
+        return jsonify(response_data)
+    except Exception as e:
+        session.rollback()
+        return jsonify(f"get women products failed: {e}")
+    finally:
+        session.close()

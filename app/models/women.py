@@ -1,19 +1,18 @@
 from app.models.base import Base
-from sqlalchemy import String, Integer, DECIMAL
+from sqlalchemy import String, Integer, DECIMAL, Enum, ARRAY
 from sqlalchemy.orm import mapped_column
-# from sqlalchemy.dialects.postgresql import ENUM
 
 class Women(Base):
     __tablename__ = "women_product"
 
     id = mapped_column(Integer, primary_key=True, autoincrement=True)
-    category = mapped_column(String(255), nullable=False)
+    category = mapped_column(Enum('t-shirts', 'blouse', 'dress', 'pants', 'skirts', 'shoes', 'accessories', name='category', create_type=False), nullable=False)
     product_name = mapped_column(String(255), nullable=False, unique=True)
     product_brand = mapped_column(String(255), nullable=False, unique=True)
-    image_url = mapped_column(String(855), nullable=False)
+    image_url = mapped_column(ARRAY(String(855)), nullable=False)
     rent_price = mapped_column(DECIMAL(12,2), nullable=False)
     retail_price = mapped_column(DECIMAL(12,2), nullable=False)
-    size = mapped_column(String(125), nullable=False)
+    size = mapped_column(ARRAY(String(125)), nullable=False)
     color = mapped_column(String(255), nullable=False)
     style = mapped_column(String(255), nullable=False)
     material = mapped_column(String(255), nullable=False)
