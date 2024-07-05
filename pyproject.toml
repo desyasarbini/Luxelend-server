@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "next-milestone-1-backend"
+name = "app"
 version = "0.1.0"
 description = "project e-commerse for Next milestone-1"
 authors = ["desyasarbini <desya.sarbini@gmail.com>"]
@@ -31,7 +31,7 @@ pydantic = "2.7.0"
 werkzeug = "3.0.2"
 gunicorn = "22.0.0"
 flask-cors = "4.0.0"
-psycopg2 = "2.9.9"
+psycopg2 = "^2.9.9"
 
 
 [build-system]
