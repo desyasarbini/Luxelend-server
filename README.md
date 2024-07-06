@@ -8,12 +8,11 @@
 3. install depencies yang akan digunakan menggunakan poetry
    `poetry install`
 
-4. Folder Description
+4. Structure Folder Description
    connectors : untuk connect ke database, fetch data .env
-   models : untuk menyamakan data tabel yang ada disupabase, beserta typenya
-   route : route api dan method yang digunakan
    controller : controller, untk model seperti (untuk get product, create product, etc)
+   models : untuk menyamakan data tabel yang ada disupabase, beserta typenya
+   routes : route api dan method yang digunakan
    utils : settingan api_response awal
 
-5. Documentasi API (By Postman)
-   `https://documenter.getpostman.com/view/32144902/2sA3e1AV8d`
+5. [Documentasi Luxelend API](https://documenter.getpostman.com/view/32144902/2sA3e1AV8d)
