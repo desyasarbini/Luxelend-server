@@ -7,6 +7,7 @@ from app.routes.women_product_route import women_product_blueprint
 load_dotenv()
 
 app = Flask(__name__)
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
 
 @app.route("/")
 def helloWorld():

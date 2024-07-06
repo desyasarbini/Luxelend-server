@@ -14,3 +14,6 @@
    route : route api dan method yang digunakan
    controller : controller, untk model seperti (untuk get product, create product, etc)
    utils : settingan api_response awal
+
+5. Documentasi API (By Postman)
+   `https://documenter.getpostman.com/view/32144902/2sA3e1AV8d`
