@@ -16,3 +16,7 @@
    utils : settingan api_response awal
 
 5. [Documentasi Luxelend API](https://documenter.getpostman.com/view/32144902/2sA3e1AV8d)
+
+`docker build -t luxelend .`
+if permission still denied. use this :
+`sudo chmod 666 /var/run/docker.sock`

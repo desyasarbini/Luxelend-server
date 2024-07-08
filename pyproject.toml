@@ -32,6 +32,7 @@ werkzeug = "3.0.2"
 gunicorn = "22.0.0"
 flask-cors = "4.0.0"
 psycopg2 = "^2.9.9"
+docker = "^7.1.0"
 
 
 [build-system]
