@@ -93,6 +93,10 @@ def get_men_product_detail(men_product_id):
     finally:
         session.close()
 
+def get_men_product_category():
+    session = Session()
+    session.begin()
+
 def delete_men_product(men_product_id):
     session = Session()
     session.begin()
