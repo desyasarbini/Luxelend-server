@@ -17,6 +17,7 @@ class Men(Base):
     style = mapped_column(ARRAY(String(255)), nullable=False)
     material = mapped_column(ARRAY(String(255)), nullable=False)
     fit_note = mapped_column(String(255), nullable=False)
+    stock = mapped_column(Integer, nullable=False)
 
     def serialize(self, full=True):
         if full:
@@ -32,7 +33,8 @@ class Men(Base):
                 'color': self.color,
                 'style': self.style,
                 'material': self.material,
-                'fit_note': self.fit_note
+                'fit_note': self.fit_note,
+                'stock': self.stock
             }
         else:
             return{

@@ -56,6 +56,19 @@ def create_men_product():
         }
     )
 
+def get_men_product_category():
+    session = Session()
+    session.begin()
+
+    try:
+        men_product_categories = session.query(Men).all()
+        return [men.serialize() for men in men_product_categories]
+    except Exception as e:
+        session.rollback()
+        return jsonify(f"An error occurred: {e}"), 400
+    finally:
+        session.close()
+
 def get_men_product():
     response_data = dict()
     session = Session()
@@ -92,10 +105,6 @@ def get_men_product_detail(men_product_id):
         return jsonify(f"fetching men's product detail failed: {e}"), 400
     finally:
         session.close()
-
-def get_men_product_category():
-    session = Session()
-    session.begin()
 
 def delete_men_product(men_product_id):
     session = Session()

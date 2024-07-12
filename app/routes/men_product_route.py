@@ -3,7 +3,8 @@ from app.controllers.men_product_controller import (
     create_men_product,
     get_men_product,
     get_men_product_detail,
-    delete_men_product
+    delete_men_product, 
+    get_men_product_category
 )
 
 men_product_blueprint = Blueprint('create_men_product',__name__)
