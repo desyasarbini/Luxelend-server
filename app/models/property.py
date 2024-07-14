@@ -9,4 +9,15 @@ class Property(Base):
     property_category_id = mapped_column(Integer, ForeignKey('property_category.id', ondelete="CASCADE"))
     value = mapped_column(String(225), nullable=False)
 
-    category_property = relationship("Property_category", back_populates="")
+    property_category = relationship("Property_category", back_populates="property")
+    product_properties = relationship("Product_properties", back_populates="property")
+
+    def serialize(self):
+        return{
+            'id': self.id,
+            'property_category_id': self.property_category_id,
+            'value': self.value
+        }
+    
+    def __repr__(self):
+        return f'<Property{self.id}>'

@@ -8,6 +8,8 @@ class Property_category(Base):
     id = mapped_column(Integer, primary_key=True, autoincrement=True)
     name = mapped_column(String(255))
 
+    property = relationship("Property", back_populates="property_category")
+
     def serialize(self):
         return {
             'id': self.id,

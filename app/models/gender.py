@@ -8,7 +8,8 @@ class Gender(Base):
     id = mapped_column(Integer, primary_key=True, autoincrement=True)
     name = mapped_column(String(25), nullable=False)
 
-    gender_categories = relationship("Gender_category", back_populates="genders")
+    # gender_category = relationship("Gender_category", back_populates="gender")
+    # users = relationship("Users", back_populates="gender")
 
     def serialize(self):
         return{
@@ -17,4 +18,4 @@ class Gender(Base):
         }
     
     def __repr__(self):
-        return f'<Gender{self.name}>'
+        return f'<Gender{self.id} - {self.name}>'

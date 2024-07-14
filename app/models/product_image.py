@@ -6,10 +6,10 @@ class Product_image(Base):
     __tablename__ = "product_image"
 
     id = mapped_column(Integer, primary_key=True, autoincrement=True)
-    product_id = mapped_column(Integer, ForeignKey("product.id", ondelete="CASCADE"))
+    product_id = mapped_column(Integer, ForeignKey('product.id', ondelete="CASCADE"))
     value = mapped_column(String(255), nullable=False)
 
-    products = relationship("Product", back_populates="image_product")
+    product = relationship("Product", back_populates="product_image")
 
     def serialize(self):
         return{

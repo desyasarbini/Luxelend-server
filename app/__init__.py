@@ -5,6 +5,8 @@ from flask_cors import CORS
 from app.routes.men_product_route import men_product_blueprint
 from app.routes.women_product_route import women_product_blueprint
 from app.routes.category_route import category_blueprint
+from app.routes.product_route import product_blueprint
+# from app.routes.gender_category_route import gender_category_blueprint
 
 load_dotenv()
 
@@ -20,6 +22,8 @@ def helloWorld():
 app.register_blueprint(men_product_blueprint)
 app.register_blueprint(women_product_blueprint)
 app.register_blueprint(category_blueprint)
+app.register_blueprint(product_blueprint)
+# app.register_blueprint(gender_category_blueprint)
 
 if __name__ == "__main__":
     app.run()

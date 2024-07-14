@@ -8,8 +8,8 @@ class Category(Base):
     id = mapped_column(Integer, primary_key=True, autoincrement=True)
     name = mapped_column(String(255))
 
-    products = relationship("Product", back_populates="category_product")
-    gender_categories = relationship("Gender_category", back_populates="categories")
+    product = relationship("Product", back_populates="category")
+    # gender_category = relationship("Gender_category", back_populates="category")
 
     def serialize(self):
         return{
@@ -18,4 +18,4 @@ class Category(Base):
         }
     
     def __repr__(self):
-        return f'<Category{self.name}>'
+        return f'<Category{self.id} - {self.name}>'

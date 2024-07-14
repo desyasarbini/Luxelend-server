@@ -5,16 +5,18 @@ from sqlalchemy.orm import mapped_column, relationship
 class Gender_category(Base):
     __tablename__ = "gender_category"
 
-    gender_id = mapped_column(Integer, ForeignKey('gender.id', ondelete="CASCADE"))
-    category_id = mapped_column(Integer, ForeignKey('category.id', ondelete="CASCADE"))
+    gender_id = mapped_column(Integer, ForeignKey('gender.id', ondelete="CASCADE"), primary_key=True)
+    category_id = mapped_column(Integer, ForeignKey('category.id', ondelete="CASCADE"), primary_key=True)
 
-    genders = relationship("Gender", back_populates="gender_categories")
-    categories = relationship("Category", back_populates="gender_categories")
+    # gender = relationship("Gender", back_populates="gender_category")
+    # category = relationship("Category", back_populates="gender_category")
 
     def serialize(self):
         return{
             'gender_id': self.gender_id,
-            'category_id': self.category_id
+            'category_id': self.category_id,
+            'gender': self.gender.serialize() if self.gender else None,
+            'category': self.category.serialize() if self.category else None
         }
     
     def __repr__(self):
