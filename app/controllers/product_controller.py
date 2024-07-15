@@ -18,6 +18,7 @@ def get_product():
 
         products = product_query.all()
         response_data['products'] = [product.serialize(full=False) for product in products]
+
         return jsonify(response_data)
     except Exception as e:
         session.rollback()
