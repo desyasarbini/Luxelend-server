@@ -9,7 +9,7 @@ class Gender_category(Base):
     category_id = mapped_column(Integer, ForeignKey('category.id', ondelete="CASCADE"), primary_key=True)
 
     gender = relationship("Gender", back_populates="gender_category")
-    # category = relationship("Category", back_populates="gender_category")
+    category = relationship("Category", back_populates="gender_category")
 
     def serialize(self):
         return{

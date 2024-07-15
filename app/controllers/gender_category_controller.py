@@ -26,14 +26,25 @@ from app.utils.api_response import api_response
 #         session.close()
 
 def get_gender_category():
+    response_data = dict()
+    session = Session()
+    session.begin()
+
     try:
-        session = Session()
+        gender_category_query = session.query(Gender_category)
+        
+      
+        if request.args.get('query') is not None:
+            search_query = request.args.get('query')
+           
+            gender_category_query = gender_category_query.filter(Gender_category.gender_id.like(f"%{search_query}%"))
 
-        gender_categories = session.query(Gender_category).all()
-        serialized_gender_categories = [gc.serialize() for gc in gender_categories]
+        gender_category = gender_category_query.all()
+        response_data['gender_category'] = [gc.serialize() for gc in gender_category]
 
-        return jsonify(serialized_gender_categories), 200
+        return jsonify(response_data)
     except Exception as e:
+        session.rollback()
         return jsonify({"error": f"Failed to fetch gender categories: {str(e)}"}), 400
     finally:
         session.close()

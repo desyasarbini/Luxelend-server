@@ -1,13 +1,13 @@
 from flask import jsonify, request
-from app.connectors.sql_connector import Session  # Sesuaikan dengan modul koneksi Anda
+from app.connectors.sql_connector import Session  
 from app.models.gender import Gender
 
 def get_gender():
     try:
         session = Session()
 
-        genders = session.query(Gender).all()
-        serialized_genders = [gender.serialize() for gender in genders]
+        gender = session.query(Gender).all()
+        serialized_genders = [gender.serialize() for gender in gender]
 
         return jsonify(serialized_genders), 200
     except Exception as e:
