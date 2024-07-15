@@ -14,7 +14,8 @@ class Product_properties(Base):
     def serialize(self):
         return{
             'product_id': self.product_id,
-            'property_id': self.property_id
+            'property_id': self.property_id,
+            'property': self.property.serialize() if self.property else None,
         }
     
     def __repr__(self):

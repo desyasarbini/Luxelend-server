@@ -23,8 +23,8 @@ CORS(app, origins=['http://localhost:5000', 'http://localhost:3000', 'http://loc
 def helloWorld():
     return "welcome to Luxelend!"
 
-app.register_blueprint(men_product_blueprint)
-app.register_blueprint(women_product_blueprint)
+# app.register_blueprint(men_product_blueprint)
+# app.register_blueprint(women_product_blueprint)
 app.register_blueprint(category_blueprint)
 app.register_blueprint(product_blueprint)
 app.register_blueprint(product_properties_bp_blueprint)

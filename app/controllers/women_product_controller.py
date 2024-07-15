@@ -69,7 +69,7 @@ def get_women_product():
             women_product_query = women_product_query.filter(Women.category.like(f"%{search_women_product_query}%"))
 
         women_products = women_product_query.all()
-        response_data['women_products'] = [women.serialize(full=False) for women in women_products]
+        response_data['women_products'] = [women.serialize(full=True) for women in women_products]
         return jsonify(response_data)
     except Exception as e:
         session.rollback()
