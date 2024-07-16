@@ -1,4 +1,4 @@
-from flask import jsonify, request
+from flask import jsonify
 from app.models.category import Category
 from app.connectors.sql_connector import Session
 from app.utils.api_response import api_response
@@ -22,6 +22,7 @@ def get_category_detail(category_id):
 
     try:
         category_products = session.query(Category).filter((Category.id==category_id)).first()
+        
         if category_products:
             return api_response(
                 status_code = 200,

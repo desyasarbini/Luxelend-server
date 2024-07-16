@@ -21,9 +21,7 @@ class Property(Base):
 
         if include_category:
             serialize_data['property_category'] = self.property_category.serialize() if self.property_category else None
-        
         return serialize_data
-
     
     def __repr__(self):
         return f'<Property{self.id}>'

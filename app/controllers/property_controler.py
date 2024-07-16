@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import jsonify
 from app.models.property import Property
 from app.connectors.sql_connector import Session
 

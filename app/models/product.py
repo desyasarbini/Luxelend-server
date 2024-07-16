@@ -25,13 +25,11 @@ class Product(Base):
     def serialize(self, full=True):
         serialize_data = {
             'id': self.id,
-            'category_id': self.category_id,
             'gender_category': self.gender_category_id,
             'name': self.name,
             'rented_price': self.rented_price,
             'retail_price': self.retail_price,
             'stock': self.stock,
-            
         }
 
         if full:
@@ -43,9 +41,7 @@ class Product(Base):
                 'product_images': [image.serialize() for image in self.product_image],
                 'product_properties': [properties.serialize() for properties in self.product_properties],
                 'fit_note': self.fit_note
-                
             })
-
         return serialize_data
     
     def __repr__(self):

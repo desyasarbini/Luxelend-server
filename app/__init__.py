@@ -2,8 +2,6 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 from flask_cors import CORS
-from app.routes.men_product_route import men_product_blueprint
-from app.routes.women_product_route import women_product_blueprint
 from app.routes.category_route import category_blueprint
 from app.routes.product_route import product_blueprint
 from app.routes.product_properties import product_properties_bp_blueprint
@@ -23,8 +21,6 @@ CORS(app, origins=['http://localhost:5000', 'http://localhost:3000', 'http://loc
 def helloWorld():
     return "welcome to Luxelend!"
 
-# app.register_blueprint(men_product_blueprint)
-# app.register_blueprint(women_product_blueprint)
 app.register_blueprint(category_blueprint)
 app.register_blueprint(product_blueprint)
 app.register_blueprint(product_properties_bp_blueprint)

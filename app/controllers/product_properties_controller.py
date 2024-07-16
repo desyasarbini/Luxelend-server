@@ -1,16 +1,8 @@
 from flask import jsonify, request
-from app.models.category import Category
-from app.connectors.sql_connector import Session
-from app.utils.api_response import api_response
-from app.models.property import Property
-from app.models.product_properties import Product_properties
-
-from flask import jsonify, request
 from sqlalchemy.orm import joinedload
-from app.models.product import Product
-from app.models.product_image import Product_image
 from app.connectors.sql_connector import Session
-from app.utils.api_response import api_response
+from app.models.product_properties import Product_properties
+from app.models.product_image import Product_image
 
 def get_product_properties():
     try:

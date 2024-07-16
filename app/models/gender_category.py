@@ -13,14 +13,17 @@ class Gender_category(Base):
     gender = relationship("Gender", back_populates="gender_category")
     category = relationship("Category", back_populates="gender_category")
 
-    def serialize(self):
-        return{
-            'id':self.id,
-            'gender_id': self.gender_id,
-            'category_id': self.category_id,
-            'gender': self.gender.serialize() if self.gender else None,
-            'category': self.category.serialize() if self.category else None
+    def serialize(self, full = True):
+        serialize_data = {
+            'id':self.id
         }
+
+        if full:
+            serialize_data.update({
+                'gender': self.gender.serialize() if self.gender else None,
+                'category': self.category.serialize() if self.category else None
+            })
+        return serialize_data
     
     def __repr__(self):
         return f'<Gender_category{self.gender_id},{self.category_id}>'

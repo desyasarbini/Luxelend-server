@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.controllers.gender_controler import get_gender
+from app.controllers.gender_controller import get_gender
 
 gender_blueprint = Blueprint('gender', __name__)
 
