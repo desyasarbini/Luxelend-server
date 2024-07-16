@@ -6,7 +6,11 @@ from app.routes.men_product_route import men_product_blueprint
 from app.routes.women_product_route import women_product_blueprint
 from app.routes.category_route import category_blueprint
 from app.routes.product_route import product_blueprint
-# from app.routes.gender_category_route import gender_category_blueprint
+from app.routes.product_properties import product_properties_bp_blueprint
+from app.routes.property_category_route import property_category_blueprint
+from app.routes.property_route import property_blueprint
+from app.routes.gender_route import gender_blueprint
+from app.routes.gender_category_route import gender_category_blueprint
 
 load_dotenv()
 
@@ -19,11 +23,15 @@ CORS(app, origins=['http://localhost:5000', 'http://localhost:3000', 'http://loc
 def helloWorld():
     return "welcome to Luxelend!"
 
-app.register_blueprint(men_product_blueprint)
-app.register_blueprint(women_product_blueprint)
+# app.register_blueprint(men_product_blueprint)
+# app.register_blueprint(women_product_blueprint)
 app.register_blueprint(category_blueprint)
 app.register_blueprint(product_blueprint)
-# app.register_blueprint(gender_category_blueprint)
+app.register_blueprint(product_properties_bp_blueprint)
+app.register_blueprint(property_category_blueprint)
+app.register_blueprint(property_blueprint)
+app.register_blueprint(gender_blueprint)
+app.register_blueprint(gender_category_blueprint)
 
 if __name__ == "__main__":
     app.run()

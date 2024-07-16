@@ -9,7 +9,7 @@ class Category(Base):
     name = mapped_column(String(255))
 
     product = relationship("Product", back_populates="category")
-    # gender_category = relationship("Gender_category", back_populates="category")
+    gender_category = relationship("Gender_category", back_populates="category")
 
     def serialize(self):
         return{

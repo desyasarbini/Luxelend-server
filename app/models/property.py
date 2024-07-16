@@ -12,12 +12,18 @@ class Property(Base):
     property_category = relationship("Property_category", back_populates="property")
     product_properties = relationship("Product_properties", back_populates="property")
 
-    def serialize(self):
-        return{
+    def serialize(self, include_category=False):
+        serialize_data = {
             'id': self.id,
             'property_category_id': self.property_category_id,
-            'value': self.value
+            'value': self.value,
         }
+
+        if include_category:
+            serialize_data['property_category'] = self.property_category.serialize() if self.property_category else None
+        
+        return serialize_data
+
     
     def __repr__(self):
         return f'<Property{self.id}>'

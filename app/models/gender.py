@@ -8,8 +8,7 @@ class Gender(Base):
     id = mapped_column(Integer, primary_key=True, autoincrement=True)
     name = mapped_column(String(25), nullable=False)
 
-    # gender_category = relationship("Gender_category", back_populates="gender")
-    # users = relationship("Users", back_populates="gender")
+    gender_category = relationship("Gender_category", back_populates="gender")
 
     def serialize(self):
         return{

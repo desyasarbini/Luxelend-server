@@ -81,7 +81,7 @@ def get_men_product():
             men_product_query = men_product_query.filter(Men.category.like(f"%{search_men_product_query}%"))
 
         men_products = men_product_query.all()
-        response_data['men_products'] = [men.serialize(full=False) for men in men_products]
+        response_data['men_products'] = [men.serialize(full=True) for men in men_products]
         return jsonify(response_data)
     
     except Exception as e:
