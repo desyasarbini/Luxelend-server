@@ -14,6 +14,7 @@ class Product(Base):
     stock = mapped_column(Integer, nullable=False)
     created_at = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+    fit_note = mapped_column(String(255), nullable=False)
 
     category = relationship("Category", back_populates="product")
     gender_category = relationship("Gender_category", back_populates="product")
@@ -29,7 +30,8 @@ class Product(Base):
             'name': self.name,
             'rented_price': self.rented_price,
             'retail_price': self.retail_price,
-            'stock': self.stock
+            'stock': self.stock,
+            
         }
 
         if full:
@@ -40,6 +42,7 @@ class Product(Base):
                 'gender_category': self.gender_category.serialize() if self.gender_category else None,
                 'product_images': [image.serialize() for image in self.product_image],
                 'product_properties': [properties.serialize() for properties in self.product_properties],
+                'fit_note': self.fit_note
                 
             })
 
