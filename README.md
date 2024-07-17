@@ -17,6 +17,11 @@
 
 5. [Documentasi Luxelend API](https://documenter.getpostman.com/view/32144902/2sA3e1AV8d)
 
+build docker image:
 `docker build -t luxelend .`
-if permission still denied. use this :
+
+if permission still denied. use this:
 `sudo chmod 666 /var/run/docker.sock`
+
+route :
+[All Product](https://luxelend-production.up.railway.app/product)

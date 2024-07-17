@@ -8,7 +8,7 @@ def get_property():
         session = Session()
 
         propertiy = session.query(Property).all()
-        response_data['propertiy'] = [prop.serialize() for prop in propertiy]
+        response_data['propertiy'] = [prop.serialize(include_category=True) for prop in propertiy]
 
         return jsonify(response_data), 200
     except Exception as e:
