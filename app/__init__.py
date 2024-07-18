@@ -15,7 +15,11 @@ load_dotenv()
 app = Flask(__name__)
 
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
-CORS(app, origins=['https://luxelend-client-side.vercel.app/','http://localhost:5000', 'http://localhost:3000'], supports_credentials=True)
+CORS(app, origins=[
+    'https://luxelend-client-side.vercel.app',
+    'http://localhost:5000', 
+    'http://localhost:3000'
+], supports_credentials=True)
 
 @app.route("/")
 def helloWorld():
