@@ -13,7 +13,7 @@ Luxelend is a rental platform for luxury outfits and items, this project uses Po
 - [Running the Application](#running-the-application)
 - [API Endpoints](#api-endpoints)
 - [API Documentation](#api-documentation)
-- [Deployment]()
+- [Deployment](#deployment)
 
 ## Overview
 
@@ -104,9 +104,9 @@ JWT_SECRET_KEY=your_secret_key
 
 ### Railway Deploy
 
-- login ke railway, saya menggunakan github untuk login sehingga jika ada deployment akan terintegrasi dengan railway
-- pilih repository yang ingin di upload
-- pilih variable, dan setting menggunakan data yang ada pada .env kalian
-- setting FLASK_DEBUG `true` ubah ke `false`
-- setting FLASK_ENV `Development` ke `Production`
-- setting PORT mengikuti dengan localhost yang disetting ke app
+- login to railway, with your integrated github account
+- choose repository to upload
+- select variable, and input the data with your .env
+- setting FLASK_DEBUG `true` to `false`
+- setting FLASK_ENV `Development` to `Production`
+- setting PORT with the following localhost app
